@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<!--    // inside this data tag we will define view model-->
+<!--    // coz view model directly connect with UI look the edit text which has tag-->
+<!--    // android:text="@={viewmodel.email}" in edit text automatically assign to authviewmodel object email//-->
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.mvvmsampleapp.ui.auth.AuthViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".ui.auth.LoginActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@android:color/black"
+            android:text="LOGIN SCREEN"/>
+
+        <EditText
+            android:text="@={viewmodel.email}"
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Email"/>
+
+        <EditText
+            android:text="@={viewmodel.password}"
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Password" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"/>
+
+<!--        here see button is also connect with viewmodel onbuttonclicklistener function to work -->
+
+        <Button
+            android:onClick="@{viewmodel::onLoginButtonClick}"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"/>
+
+    </LinearLayout>
+
+
+</layout>
